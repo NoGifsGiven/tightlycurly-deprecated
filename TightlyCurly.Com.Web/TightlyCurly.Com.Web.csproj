@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <AssemblyName>TightlyCurly.Com.Web</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework Condition="'$(TargetFramework)' == ''">net10.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- The distro package splits out the ASP.NET Core targeting pack; the reference
+         assemblies are restored from NuGet instead, which lacks prune-package data. -->
+    <AllowMissingPrunePackageData>true</AllowMissingPrunePackageData>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../TightlyCurly.Com.Common/TightlyCurly.Com.Common.csproj" />
+    <ProjectReference Include="../TightlyCurly.Com.Framework/TightlyCurly.Com.Framework.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The original Web Forms sources are preserved for reference but excluded from the build. -->
+    <Compile Remove="_legacy/**" />
+    <Content Remove="_legacy/**" />
+    <None Include="_legacy/**" />
+  </ItemGroup>
+</Project>

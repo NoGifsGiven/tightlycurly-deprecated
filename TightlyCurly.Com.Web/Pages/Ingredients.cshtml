@@ -1,0 +1,51 @@
+@page "/ingredients/{ingredientName?}"
+@model TightlyCurly.Com.Web.Pages.IngredientsModel
+
+@if (Model.ShowPreamble)
+{
+    <div class="ingredients-preamble">
+        <p>Browse the ingredients database by selecting a letter, or search for an ingredient by name.</p>
+    </div>
+}
+
+<div class="ingredient-categories">
+    <span>@Resources.TightlyCurly.Com.Web.chooseCategoryText</span>
+    @foreach (var category in Model.Options.SearchCategories)
+    {
+        <a asp-page="/Ingredients" asp-route-startsWith="@category.Arguments">@category.CategoryName</a>
+        <text>&nbsp;</text>
+    }
+</div>
+
+@if (Model.Ingredients.Any())
+{
+    <table class="ingredients">
+        <tbody>
+            @foreach (var ingredient in Model.Ingredients)
+            {
+                var rating = Model.GetRating(ingredient);
+                var related = Model.FormatRelatedLinks(ingredient);
+                var external = Model.FormatExternalLinks(ingredient);
+                <tr>
+                    <td>
+                        <h3 class="ingredient-title">@ingredient.Title</h3>
+                        @if (!string.IsNullOrEmpty(ingredient.Alias))
+                        {
+                            <p class="ingredient-alias">@string.Format(Resources.TightlyCurly.Com.Web.alsoKnownAs, ingredient.Alias)</p>
+                        }
+                        <span class="@rating.CssClass">@rating.Text</span>
+                        <div class="ingredient-description">@Html.Raw(ingredient.Description)</div>
+                        @if (!string.IsNullOrEmpty(related))
+                        {
+                            <p class="related-links"><strong>@Resources.TightlyCurly.Com.Web.relatedLinksText</strong> @Html.Raw(related)</p>
+                        }
+                        @if (!string.IsNullOrEmpty(external))
+                        {
+                            <p class="external-links"><strong>@Resources.TightlyCurly.Com.Web.externalLinksText</strong> @Html.Raw(external)</p>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

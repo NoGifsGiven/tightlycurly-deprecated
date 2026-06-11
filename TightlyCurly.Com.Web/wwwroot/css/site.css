@@ -1,0 +1,100 @@
+/* Minimal replacement styles; the original site stylesheet was not part of the export. */
+body {
+    font-family: Verdana, Arial, sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+header .site-banner {
+    background: #5b3a29;
+    padding: 1rem;
+}
+
+header .site-banner a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.site-bulletin {
+    background: #fdf3d1;
+    border: 1px solid #e0c060;
+    padding: 0.5rem 1rem;
+}
+
+nav.left-menu {
+    float: left;
+    width: 12rem;
+    padding: 1rem;
+}
+
+nav.left-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+main {
+    margin-left: 14rem;
+    padding: 1rem;
+}
+
+footer {
+    clear: both;
+    border-top: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.message-box {
+    border: 1px solid #5b3a29;
+    background: #f7f0ea;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.validation-summary {
+    color: #a00;
+}
+
+.form-row {
+    margin-bottom: 0.75rem;
+}
+
+.form-row label {
+    display: block;
+    font-weight: bold;
+}
+
+.ingredient-categories a {
+    margin-right: 0.25rem;
+}
+
+table.ingredients {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.ingredients td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.75rem 0;
+}
+
+.avoid {
+    color: #a00;
+    font-weight: bold;
+}
+
+.caution {
+    color: #b8860b;
+    font-weight: bold;
+}
+
+.good {
+    color: #060;
+    font-weight: bold;
+}
+
+.acceptable {
+    color: #555;
+    font-weight: bold;
+}

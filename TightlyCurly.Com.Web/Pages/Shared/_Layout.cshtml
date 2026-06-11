@@ -1,0 +1,55 @@
+@inject LayoutState LayoutState
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(ViewData["Title"] ?? "TightlyCurly")</title>
+    @if (!string.IsNullOrEmpty(ViewData["MetaDescription"] as string))
+    {
+        <meta name="description" content="@ViewData["MetaDescription"]" />
+    }
+    @if (!string.IsNullOrEmpty(ViewData["MetaKeywords"] as string))
+    {
+        <meta name="keywords" content="@ViewData["MetaKeywords"]" />
+    }
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div class="site-banner">
+            <a href="/">TightlyCurly</a>
+        </div>
+        @if (!string.IsNullOrEmpty(LayoutState.SiteBulletin))
+        {
+            <div class="@(string.IsNullOrEmpty(LayoutState.SiteBulletinCssClass) ? "site-bulletin" : LayoutState.SiteBulletinCssClass)">
+                @Html.Raw(LayoutState.SiteBulletin)
+            </div>
+        }
+    </header>
+    <nav class="left-menu">
+        <ul>
+            <li><a href="/content/welcome">Home</a></li>
+            <li><a href="/ingredients">Ingredients</a></li>
+            <li><a href="/answerbank">Answer Bank</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <partial name="_GoogleTranslator" />
+    </nav>
+    <main>
+        @if (!string.IsNullOrEmpty(LayoutState.PageTitle))
+        {
+            <h1 class="page-title">@Html.Raw(LayoutState.PageTitle)</h1>
+        }
+        <partial name="_MessageBox" />
+        @RenderBody()
+    </main>
+    <footer>
+        <p>&copy; TightlyCurly.com</p>
+    </footer>
+    @if (LayoutState.EnableAnalytics)
+    {
+        <partial name="_GoogleAnalytics" />
+    }
+</body>
+</html>

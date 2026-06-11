@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="TightlyCurly.Com.Common/TightlyCurly.Com.Common.csproj" />
+  <Project Path="TightlyCurly.Com.Framework/TightlyCurly.Com.Framework.csproj" />
+  <Project Path="TightlyCurly.Com.Web/TightlyCurly.Com.Web.csproj" />
+</Solution>

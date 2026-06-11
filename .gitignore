@@ -1,0 +1,87 @@
+# Binaries
+bin/
+obj/
+
+# NuGet packages/packages.lock.json
+packages/
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+packages.lock.json
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.vspscc
+*.vssscc
+BuildReleases/
+
+# Rider
+.idea/
+*.sln.iml
+*.swp
+*.swn
+*.sublime-workspace
+*.sublime-project
+
+# Test results
+TestResults/
+**/*.trx
+**/*.result
+
+# NuGet Cache
+.nuget/
+
+# VS Code
+.vscode/
+
+# Tmp files
+tmp/
+temp/
+*.tmp
+
+# Log files
+*.log
+logs/
+
+# Build outputs
+*.pdb
+*.dll
+*.exe
+
+# Resx compiler
+*.resx.compiled
+
+# Coverage
+coverage/
+**/*.coveragexml
+**/*.cobertura.xml
+**/*.lcov
+
+# SourceLink
+source_link/
+
+# User-specific settings (like .claude)
+.claude/
+
+# Environment variables
+.env
+.env.local
+
+# Docker
+docker-compose.override.json
+*.datadog.json
+
+# Fallback for Windows
+[Dd]esktop/[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+wpa/
+[Pp]roduct/
+
+# NuGet temp
+**/.nuget/packages/*/temp/

@@ -1,0 +1,34 @@
+<Project>
+  <PropertyGroup>
+    <!-- Package versions are defined centrally in this file -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
+
+    <!-- Target Framework -->
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- Build Settings -->
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <Nullable>disable</Nullable>
+    
+    <!-- Implicit Usings: enable for Common/Web, disable for Framework (legacy compatibility) -->
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+    <!-- SYSLIB warnings for legacy crypto compatibility -->
+    <NoWarn>$(NoWarn);SYSLIB0014;SYSLIB0021;SYSLIB0022;SYSLIB0023;SYSLIB0041</NoWarn>
+    
+    <!-- Allow missing prune package data for distro packages -->
+    <AllowMissingPrunePackageData>true</AllowMissingPrunePackageData>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Core Infrastructure -->
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.*" />
+    <PackageVersion Include="System.Configuration.ConfigurationManager" Version="10.0.*" />
+    
+    <!-- Data Access & Caching -->
+    <PackageVersion Include="Dapper" Version="2.1.*" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.*" />
+  </ItemGroup>
+</Project>

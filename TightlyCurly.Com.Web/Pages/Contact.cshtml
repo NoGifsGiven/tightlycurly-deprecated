@@ -1,0 +1,40 @@
+@page "/contact"
+@model TightlyCurly.Com.Web.Pages.ContactModel
+
+<h2>Contact</h2>
+
+@if (!Model.Enabled)
+{
+    <div class="contact-disabled">
+        @Html.Raw(Model.DisabledMessage)
+    </div>
+}
+else
+{
+    <div asp-validation-summary="All" class="validation-summary"></div>
+    <form method="post">
+        <div class="form-row">
+            <label asp-for="FirstName">First name</label>
+            <input asp-for="FirstName" required />
+        </div>
+        <div class="form-row">
+            <label asp-for="LastName">Last name</label>
+            <input asp-for="LastName" required />
+        </div>
+        <div class="form-row">
+            <label asp-for="EmailAddress">Email address</label>
+            <input asp-for="EmailAddress" type="email" required />
+        </div>
+        <div class="form-row">
+            <label asp-for="Comments">Comments</label>
+            <textarea asp-for="Comments" rows="8" required></textarea>
+        </div>
+        <div class="form-row">
+            <label>
+                <input asp-for="AddToBookUpdates" />
+                Sign up for book updates
+            </label>
+        </div>
+        <button type="submit">Send Comments</button>
+    </form>
+}

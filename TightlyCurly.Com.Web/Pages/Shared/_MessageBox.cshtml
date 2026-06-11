@@ -1,0 +1,14 @@
+@* Replaces the MessageBox user control (AjaxControlToolkit ModalPopupExtender). *@
+@if (TempData["MessageBoxTitle"] is string title && !string.IsNullOrEmpty(title))
+{
+    <div class="message-box">
+        <strong>@title</strong>
+        <p>@TempData["MessageBoxText"]</p>
+    </div>
+}
+else if (TempData["MessageBoxText"] is string message && !string.IsNullOrEmpty(message))
+{
+    <div class="message-box">
+        <p>@message</p>
+    </div>
+}

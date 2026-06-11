@@ -1,0 +1,9 @@
+@* Replaces the GoogleTranslator user control. *@
+<script type="text/javascript">
+    function translate(pattern) {
+        if (pattern && pattern != 'undefined') {
+            var destination = 'http://www.google.com/translate?u=' + window.location.href + '&langpair=' + pattern + '&hl=en&ie=UTF8';
+            window.open(destination, 'subwindow', 'toolbar=yes,location=yes, directories=yes,status=yes,scrollbars=yes,menubar=yes,resizable=yes,left=0,top=0');
+        }
+    }
+</script>

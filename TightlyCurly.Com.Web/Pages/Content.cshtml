@@ -1,0 +1,9 @@
+@page "/content/{pageName?}"
+@model TightlyCurly.Com.Web.Pages.ContentModel
+@if (!string.IsNullOrEmpty(Model.Description))
+{
+    <h2 class="content-description">@Html.Raw(Model.Description)</h2>
+}
+<div class="page-content">
+    @Html.Raw(Model.Content)
+</div>
